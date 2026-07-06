@@ -2,12 +2,12 @@ pipeline {
   agent any
   environment {
     APP_NAME = "spring-petclinic"
-    DEV_TEAM = 'akshathabm20@gmail.com'
+    DEV_TEAM = 'akshatha.1si20et003@gmail.com'
     BUILD_INFO = "Job_Name: ${env.JOB_NAME}\nBuild_Number: ${env.BUILD_NUMBER}"
   }
   tools {
-    jdk "java-home"
-    maven "maven-home"
+    jdk "java_home"
+    maven "maven_home"
   }
   stages {
         stage('Git Clone') {
@@ -24,7 +24,7 @@ pipeline {
   }
   post {
         success {
-            mail to: 'akshathabm20@gmail.com',
+            mail to: 'akshatha.1si20et003@gmail.com',
                 cc: "${env.DEV_TEAM}",
                 subject: "Jenkins Build Success: ${env.JOB_NAME}",
                 body: """
@@ -42,7 +42,7 @@ pipeline {
                         """
         }
         failure {
-            mail to: 'akshathabm20@gmail.com',
+            mail to: 'akshatha.1si20et003@gmail.com',
                 cc: "${env.DEV_TEAM}",
                 subject: "Jenkins Build Failed: ${env.JOB_NAME}",
                 body: """
